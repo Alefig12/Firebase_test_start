@@ -1,3 +1,4 @@
+import 'package:firebasetest/ui/controllers/authcontroller.dart';
 import 'package:firebasetest/ui/pages/signuppage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -8,6 +9,10 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthenticationController authenticationController = Get.find();
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
+
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -21,6 +26,7 @@ class LoginPage extends StatelessWidget {
               children: [
                 Text("E-Mail"),
                 TextField(
+                  controller: emailController,
                   textAlign: TextAlign.left,
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.only(left: 10),
@@ -33,6 +39,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 Text("Contraseña"),
                 TextField(
+                  controller: passwordController,
                   textAlign: TextAlign.left,
                   decoration: InputDecoration(
                     contentPadding: EdgeInsets.only(left: 10),
@@ -45,7 +52,9 @@ class LoginPage extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    Get.to(const HomePage());
+                    // Implementar el login con firebase
+                    authenticationController.login(
+                        emailController.text, passwordController.text);
                   },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.blue)),
@@ -56,8 +65,7 @@ class LoginPage extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    // Implementar el login con firebase
-                    Get.to(const SignupPage());
+                    Get.to(() => SignupPage());
                   },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.blue)),

@@ -1,3 +1,5 @@
+import 'package:firebasetest/ui/controllers/authcontroller.dart';
+import 'package:firebasetest/ui/controllers/usercontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebasetest/ui/pages/loginpage.dart';
@@ -12,10 +14,12 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
+    AuthenticationController authenticationController = Get.find();
+    UserController userController = Get.find();
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          // Hacer algo
+          userController.test();
         },
         child: const Icon(Icons.add),
       ),
@@ -25,20 +29,21 @@ class _HomePageState extends State<HomePage> {
           IconButton(
               onPressed: () {
                 // Implementar el logout con firebase
-                Get.offAll(const LoginPage());
+                authenticationController.logout();
               },
               icon: const Icon(Icons.logout))
         ],
       ),
       body: SafeArea(
           child: Column(
-        children: const [
+        children: [
           Card(
             margin: EdgeInsets.all(5),
             elevation: 10,
             child: ListTile(
-              title: Text("Titulo"),
-              subtitle: Text("Subtitulo"),
+              title:
+                  Obx(() => Text("Email: ${userController.loggedUserEmail}")),
+              subtitle: Obx(() => Text("ID: ${userController.loggedUserId}")),
             ),
           )
         ],

@@ -1,3 +1,5 @@
+import 'package:firebasetest/ui/controllers/authcontroller.dart';
+import 'package:firebasetest/ui/pages/firebasecentral.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebasetest/ui/pages/loginpage.dart';
@@ -7,6 +9,9 @@ class SignupPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthenticationController authenticationController = Get.find();
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passwordController = TextEditingController();
     return Scaffold(
       body: SafeArea(
         child: Center(
@@ -20,6 +25,7 @@ class SignupPage extends StatelessWidget {
               children: [
                 const Text("E-Mail"),
                 TextField(
+                  controller: emailController,
                   textAlign: TextAlign.left,
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.only(left: 10),
@@ -32,6 +38,7 @@ class SignupPage extends StatelessWidget {
                 ),
                 const Text("Contraseña"),
                 TextField(
+                  controller: passwordController,
                   textAlign: TextAlign.left,
                   decoration: InputDecoration(
                     contentPadding: const EdgeInsets.only(left: 10),
@@ -44,7 +51,11 @@ class SignupPage extends StatelessWidget {
                 ),
                 TextButton(
                   onPressed: () {
-                    Get.to(const LoginPage());
+                    // Implementar el signup con firebase
+
+                    authenticationController.signup(
+                        emailController.text, passwordController.text);
+                    Get.back();
                   },
                   style: ButtonStyle(
                       backgroundColor: MaterialStateProperty.all(Colors.blue)),
