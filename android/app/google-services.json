@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "599686767064",
+    "firebase_url": "https://firetest-a23ba-default-rtdb.firebaseio.com",
+    "project_id": "firetest-a23ba",
+    "storage_bucket": "firetest-a23ba.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:599686767064:android:80d211b5be614e5ebe12ad",
+        "android_client_info": {
+          "package_name": "com.example.firebasetest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "599686767064-7t0enruihp6jr6lrrfl3ph081tu6i6g9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCBzItmgl425-PPM97R-T_1mXtTp0vB-OQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "599686767064-7t0enruihp6jr6lrrfl3ph081tu6i6g9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

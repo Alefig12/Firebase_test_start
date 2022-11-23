@@ -1,3 +1,4 @@
+import 'package:firebasetest/ui/pages/firebasecentral.dart';
 import 'package:firebasetest/ui/pages/loginpage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const LoginPage(),
+      home: const FirebaseCentral(),
     );
   }
 }

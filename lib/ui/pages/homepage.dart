@@ -1,3 +1,4 @@
+import 'package:firebasetest/ui/controllers/authcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:firebasetest/ui/pages/loginpage.dart';
@@ -10,6 +11,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  AuthenticationController authenticationController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,12 +22,13 @@ class _HomePageState extends State<HomePage> {
         child: const Icon(Icons.add),
       ),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: const Text("Home"),
         actions: [
           IconButton(
               onPressed: () {
+                authenticationController.logout();
                 // Implementar el logout con firebase
-                Get.offAll(const LoginPage());
               },
               icon: const Icon(Icons.logout))
         ],
@@ -37,8 +40,8 @@ class _HomePageState extends State<HomePage> {
             margin: EdgeInsets.all(5),
             elevation: 10,
             child: ListTile(
-              title: Text("Titulo"),
-              subtitle: Text("Subtitulo"),
+              title: Text("Test"),
+              subtitle: Text("Flutter"),
             ),
           )
         ],
